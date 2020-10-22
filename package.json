@@ -4,7 +4,7 @@
   "description": "markdown-it plugin that does typographer replacements",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha test.js"
+    "test": "./node_modules/mocha/bin/mocha test/test.js"
   },
   "repository": {
     "type": "git",
