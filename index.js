@@ -1,4 +1,4 @@
-'use strict'
+// 'use strict'
 
 /*
  * Mostly copied from:
@@ -103,7 +103,7 @@ function replaceAt (str, index, ch) {
   return str.substr(0, index) + ch + str.substr(index + 1)
 }
 
-function process_inlines (tokens, state) {
+function ProcessInlines (tokens, state) {
   var i, token, text, t, pos, max, thisLevel, item, lastChar, nextChar,
     isLastPunctChar, isNextPunctChar, isLastWhiteSpace, isNextWhiteSpace,
     canOpen, canClose, j, isSingle, stack, openQuote, closeQuote
@@ -287,7 +287,7 @@ function replaceFn (match, name) {
   return SCOPED_ABBR[name.toLowerCase()]
 }
 
-function replace_scoped (inlineTokens) {
+function ReplaceScoped (inlineTokens) {
   var i, token
 
   for (i = inlineTokens.length - 1; i >= 0; i--) {
@@ -298,7 +298,7 @@ function replace_scoped (inlineTokens) {
   }
 }
 
-function replace_rare (inlineTokens) {
+function ReplaceRare (inlineTokens) {
   var i, token
 
   for (i = inlineTokens.length - 1; i >= 0; i--) {
@@ -326,20 +326,20 @@ function typographer (state) {
     if (state.tokens[blkIdx].type !== 'inline') { continue }
 
     if (QUOTE_TEST_RE.test(state.tokens[blkIdx].content)) {
-      process_inlines(state.tokens[blkIdx].children, state)
+      ProcessInlines(state.tokens[blkIdx].children, state)
     }
 
     if (SCOPED_ABBR_TEST_RE.test(state.tokens[blkIdx].content)) {
-      replace_scoped(state.tokens[blkIdx].children)
+      ReplaceScoped(state.tokens[blkIdx].children)
     }
 
     if (RARE_RE.test(state.tokens[blkIdx].content)) {
-      replace_rare(state.tokens[blkIdx].children)
+      ReplaceRare(state.tokens[blkIdx].children)
     }
   }
 };
 
-module.exports = function typographer_plugin (md, scheme) {
+module.exports = function TypographerPlugin (md, scheme) {
   // After the built-in m-dash and n-dash support
   md.core.ruler.before('smartquotes', 'typographer', typographer)
 }

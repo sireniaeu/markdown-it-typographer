@@ -1,0 +1,9 @@
+image: registry.gitlab.com/sirenia/env/slides
+
+stages:
+  - test
+
+test:
+  stage: test
+  script:
+    - npm test
