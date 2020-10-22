@@ -48,7 +48,7 @@ function isWhiteSpace (code) {
   return false
 }
 
-var UNICODE_PUNCT_RE = require('uc.micro/categories/p/regex')
+var UNICODE_PUNCT_RE = require('uc.micro/categories/P/regex')
 
 // Currently without astral characters support.
 function isPunctChar (ch) {
