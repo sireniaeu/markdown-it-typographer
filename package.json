@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-typographer",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "markdown-it plugin that does typographer replacements",
   "main": "index.js",
   "scripts": {
